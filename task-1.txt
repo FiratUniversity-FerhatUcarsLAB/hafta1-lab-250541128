@@ -4,55 +4,35 @@ AD-SOYAD:Enes ALADAĞ
 Lütfen seçtiğiniz algoritmaya ait çözümü ve diğer isterleri aşağıya ekleyiniz:
 Görev 1: Günlük Hayat Algoritması
 Seçenek 1: Mükemmel Omlet Yapımı
-Problemi Detaylı Analizi
 
-Malzeme ve miktar kontrolü
+Problemi Detaylı Analizi:
+-Malzeme ve miktar kontrolü
+-Yumurtalar yeterli mi?
+-Süt ve tuz miktarı uygun mu?
+-İsteğe bağlı malzemeler (peynir, sebze, baharat) var mı?
+-Eğer malzeme eksikse kullanıcıya alternatif öner (örn. süt yoksa su ekle).
 
-Yumurtalar yeterli mi?
+Hazırlık aşaması:
+-Yumurtaları kır ve çırp.
+-Süt, tuz ve isteğe bağlı malzemeleri ekle.
+-Karışımı homojen yap (karıştırma adımını kontrol döngüsü ile).
+-Tava ve pişirme kontrolü
+-Tava sıcak mı? Eğer değilse ısıt.
+-Yağ miktarı yeterli mi?
+-Karışımı dök ve pişir:
+-Altı yanmadan pişiyor mu? (kontrol döngüsü)
+-Üst kısmı ne kadar katılaştı? (isteğe göre yumuşak, orta, sert)
+-Gerekirse spatula ile kenarları kontrol et.
+-Pişme süresi kontrolü ve hata yönetimi
+-Belirli sürede pişmezse uyar (tava çok soğuk veya malzeme eksik).
+-Eğer üstü hâlâ çok sıvıysa, kapak kullan veya ateşi ayarla.
 
-Süt ve tuz miktarı uygun mu?
+Servis ve sunum:
+-Omleti katla veya tabağa al.
+-Baharat veya ekstra malzeme ile süsle.
+-Servis yap.
 
-İsteğe bağlı malzemeler (peynir, sebze, baharat) var mı?
-
-Eğer malzeme eksikse kullanıcıya alternatif öner (örn. süt yoksa su ekle).
-
-Hazırlık aşaması
-
-Yumurtaları kır ve çırp.
-
-Süt, tuz ve isteğe bağlı malzemeleri ekle.
-
-Karışımı homojen yap (karıştırma adımını kontrol döngüsü ile).
-
-Tava ve pişirme kontrolü
-
-Tava sıcak mı? Eğer değilse ısıt.
-
-Yağ miktarı yeterli mi?
-
-Karışımı dök ve pişir:
-
-Altı yanmadan pişiyor mu? (kontrol döngüsü)
-
-Üst kısmı ne kadar katılaştı? (isteğe göre yumuşak, orta, sert)
-
-Gerekirse spatula ile kenarları kontrol et.
-
-Pişme süresi kontrolü ve hata yönetimi
-
-Belirli sürede pişmezse uyar (tava çok soğuk veya malzeme eksik).
-
-Eğer üstü hâlâ çok sıvıysa, kapak kullan veya ateşi ayarla.
-
-Servis ve sunum
-
-Omleti katla veya tabağa al.
-
-Baharat veya ekstra malzeme ile süsle.
-
-Servis yap.
-
-Daha Komplike Pseudocode
+PSEUDOCODE FORMATI:
 BAŞLA
 
     # 1. Malzeme ve miktar kontrolü
@@ -142,6 +122,6 @@ Hata yönetimi: çok uzun sürede pişme
 
 LLM aracına yöneltilen soru 
 
-Mükemmel omlet yapma konusunda problemi analiz edip mantığını açıklayarak, koşullar (if-else) ve döngüler (loops) içeren bir algoritmayı pseudocode halinde adım adım yaz.
+Mükemmel omlet yapma konusunda problemi analiz edip mantığını açıklayarak, koşullar (if-else) ve döngüler (loops) içeren bir algoritmayı pseudocode halinde adım adım yaz.Bu soru sonucunda aldığım cevapları analiz edip, mantığını kavramaya çalıştım.Algoritmada mantıksal dizilim ve kronolojik ilerlemenin önemini fark ettim.LLM kaynaklı pseudocode kullandım.Ben ise bu süreçte mantığını kavramya gayret ettim.
 
       
