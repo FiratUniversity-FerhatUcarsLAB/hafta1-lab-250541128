@@ -1,4 +1,91 @@
-Öğrenci No:
-AD-SOYAD:
+Öğrenci No:250541128
+AD-SOYAD:Enes ALADAĞ
 
 Lütfen seçtiğiniz algoritmaya ait çözümü ve diğer isterleri aşağıya ekleyiniz:
+Amaç:
+
+Sudoku oyununda eksik hücreleri doldurmak, kurallara uygun hamleler yapmak ve rakibin olası hamlelerini tahmin etmek.
+
+Kurallar:
+
+-Her satırda 1–9 arasında sayı yalnızca bir kez olabilir.
+-Her sütunda 1–9 arasında sayı yalnızca bir kez olabilir.
+-Her 3x3 kutuda 1–9 arasında sayı yalnızca bir kez olabilir.
+
+Karar Verme Mantığı:
+
+-Önce kesin hamleleri belirle (tek seçenekli hücreler).
+-Daha sonra olası seçenekler üzerinde stratejik seçim yap (rakibin ilerleyebileceği hücreleri engelle).
+-Hamleleri seçerken rakibin olası hamlelerini öngör: hangi hücreleri doldurursa ona avantaj sağlar veya engeller.
+
+Rakip Hamlelerini Öngörme:
+
+-Rakibin bir sonraki adımda hangi hücreleri doldurabileceğini tahmin et.
+-Kendi hamleni seçerken, rakibin kazanabileceği veya zorlanacağı hücreleri değerlendir.
+
+Algoritma Mantığı:
+
+-Döngü: Boş hücreler üzerinde tekrar tekrar karar ver.
+-Koşullar: Eğer hücrede tek seçenek varsa, doldur.
+-Alternatif seçenekler varsa, stratejik seçim yap (rakip hamlesini engelle).
+-Gerekirse backtracking (geri alma) kullan.
+
+SUDOKU OYUNUNDA KARAR VERME PSEUDOCODE FORMATI
+
+BAŞLA
+
+    # 1. Sudoku tahtasını ve boş hücreleri hazırla
+    SUDOKU_TAHTASI = 9x9 matris
+    BOŞ_HÜCRELER = tüm boş hücreleri listele
+
+    # 2. Rakip ve kendi hamlelerini simüle etmek için döngü
+    OMUZ_OMUZA = DOĞRU  # iki oyunculu senaryo
+
+    TEKRARLA (BOŞ_HÜCRELER dolana kadar):
+
+        # 3. Kesin hamleleri kontrol et
+        HER hücre BOŞ_HÜCRELER içinde TEKRARLA:
+            OLASI_RAKAMLAR = 1-9, sadece satır/sütun/kutu ile uyumlu olanlar
+
+            EĞER OLASI_RAKAMLAR uzunluğu == 1 OLSA:
+                Hücreyi doldur(tek seçenek)
+                BOŞ_HÜCRELER'den çıkar
+            BİTİR EĞER
+        BİTİR TEKRAR
+
+        # 4. Stratejik hamle: rakip hamlelerini öngör
+        HER hücre BOŞ_HÜCRELER içinde TEKRARLA:
+            OLASI_RAKAMLAR = 1-9, uyumlu olanlar
+            Rakibin olası hamlesi = hangi sayı onun avantajına olur
+
+            EĞER rakibin olası hamlesi varsa:
+                Kendi hamleni seç, rakibin avantajını engelle
+            DEĞİLSE:
+                Normal hamle yap (en güvenli seçenek)
+            BİTİR EĞER
+        BİTİR TEKRAR
+
+        # 5. Eğer hiçbir kesin hamle yoksa, tahmin veya backtracking
+        EĞER boş hücrelerde hamle yapılmadıysa:
+            Tahmin = olası bir rakam seç
+            Hücreyi doldur
+            Eğer daha sonra çelişki oluşursa geri al (backtracking)
+        BİTİR EĞER
+
+    BİTİR TEKRAR
+
+    # 6. Sonuç
+    Eğer SUDOKU_TAHTASI dolu ve kurallara uygunSA:
+        Yaz("Sudoku başarıyla çözüldü!")
+    DEĞİLSE:
+        Yaz("Sudoku çözülemedi, tekrar dene")
+    BİTİR EĞER
+
+BİTİR.
+
+LLM araçlarına sorulan soru: "Sudoku çözme yaklaşımı"  konusunda bir oyunda karar verme mantığını ve rakip hamlelerini öngörmeyi içeren algoritmayı pseudocode olarak adım adım yaz.Bunu yaparken problemi analiz edip mantığını anlat.
+
+Bu soruya bağlı olarak gerekli analiz yapılıp,mantık kendi tarafımca kavranmaya çalışılmıştır.Pseudocode formatı LLM kaynaklıdır.
+
+
+
