@@ -1,4 +1,120 @@
-Öğrenci No:
-AD-SOYAD:
+Öğrenci No:250541128
+AD-SOYAD:Enes ALADAĞ
 
-Lütfen seçtiğiniz algoritmaya ait çözümü ve diğer isterleri aşağıya ekleyiniz:
+Lütfen seçtiğiniz algoritmaya ait çözümü ve diğer isterleri aşağıya ekleyiniz
+
+Seçenek 3: Mükemmel Selfie Çekme Adımları
+
+Problem Tanımı:Yüksek kaliteli, estetik açıdan hoş ve hedeflenen duyguyu/mesajı ileten bir oto-portre (selfie) fotoğrafı çekmek.
+
+Kısıtlar (Başarı Kriterleri):	
+1. Netlik: Fotoğrafın bulanık olmaması. 
+2. Işık: Yüzün eşit ve doğal aydınlatılmış olması.
+3. Açı: En iyi yüz hatlarını ortaya çıkaran pozisyonun bulunması.
+4. Arka Plan: Dağınık olmayan veya ana konuyu destekleyen bir arka plan.
+
+Karar Noktaları:Işık kaynağı seçimi, kamera açısı ayarı, filtre/düzenleme tercihi.
+
+Amaç:	Minimal deneme sayısıyla (döngü) en yüksek kalitede final fotoğrafı (çıktı) elde etmek.
+
+Mantıksal Yol Haritası
+-Giriş (Gözlem ve Hazırlık): Çevresel faktörleri (ışık, arka plan) analiz et.
+-Aydınlatma Optimizasyonu (Kritik Koşul): En iyi aydınlatmayı bulana kadar konum değiştir (Güneş, pencere, lamba).
+-Açı ve Kompozisyon (Döngü): En iyi açıyı bulmak için kamera pozisyonunu dene ve ayarla (3-4 deneme).
+-Çekim ve Değerlendirme: Fotoğrafı çek, kısıtları kontrol et.
+-Sonuç ve Düzenleme (Nihai Koşul): Eğer fotoğraf mükemmel değilse, temel düzenlemelerle iyileştir; aksi halde bitir.
+
+Mükemmel Selfie Çekme Algoritması (Pseudocode)
+ALGORITMA MükemmelSelfieÇek
+
+  // GİRİŞ VE HAZIRLIK
+  TELEFONU_HAZIRLA()
+  ARKA_KAMERA_KULLANILACAK_MI = GİRİŞ("Arka kamera ile mi çekilecek? (EVET/HAYIR)") // Yüksek çözünürlük için tercih
+  
+  EĞER ARKA_KAMERA_KULLANILACAK_MI IS "EVET" THEN
+    KULLAN(Zamanlayıcı)
+  END EĞER
+
+  // 1. AYDINLATMA OPTİMİZASYONU DÖNGÜSÜ
+  
+  Aydınlatma_Kalitesi = KONTROL_ET(Işık_Seviyesi, Gölgeler)
+  Deneme_Sayacı = 0
+  
+  WHILE Aydınlatma_Kalitesi IS "KÖTÜ" VEYA Aydınlatma_Kalitesi IS "ORTA" DO
+    
+    // Işık Koşulu Zinciri
+    IF DOĞAL_IŞIK_VAR_MI() IS TRUE THEN
+      KONUM_DEĞİŞTİR(Pencereye_Yaklaş, Yüzü_Işığa_Çevir)
+      YAZ("Doğal ışık kaynağına yöneliniyor.")
+    ELSE IF YAPAY_IŞIK_VAR_MI() IS TRUE THEN
+      KONUM_DEĞİŞTİR(Halka_Işığa_Yaklaş, Dolaylı_Işık_Kullan)
+      YAZ("Yapay ışık kaynağı optimize ediliyor.")
+    ELSE
+      YAZ("Işık kaynağı bulunamadı, çekim kalitesi düşebilir.")
+      BREAK
+    END IF
+    
+    Aydınlatma_Kalitesi = KONTROL_ET(Işık_Seviyesi, Gölgeler)
+    Deneme_Sayacı = Deneme_Sayacı + 1
+    
+    // Güvenlik Koşulu
+    IF Deneme_Sayacı > 5 THEN
+      YAZ("Maksimum ışık denemesi aşıldı.")
+      BREAK
+    END IF
+    
+  END WHILE
+  
+  // 2. ARKA PLAN VE AÇI DÖNGÜSÜ
+  
+  EĞER ARKA_PLAN_DAĞINIK_MI() IS TRUE THEN
+    DEĞİŞTİR(Arka_Plan, Daha_Sade_Bir_Alana)
+  END EĞER
+  
+  En_İyi_Açı_Bulundu = YANLIŞ
+  Açı_Denemesi = 0
+  
+  WHILE En_İyi_Açı_Bulundu IS YANLIŞ AND Açı_Denemesi < 3 DO
+    
+    AYARLA(Kamera_Yüksekliği, Yüz_Hizasının_Hafif_Üstüne) // Çene hattı için standart optimizasyon
+    AYARLA(Kamera_Açısı, 45_Derece_Sol_VEYA_Sağ)
+    
+    POSE_VER(Doğal_İfade_Oluştur)
+    
+    ÇEK(FOTOĞRAF_X)
+    
+    // Açı Değerlendirme Koşulu
+    EĞER FOTOĞRAF_X.NETLİK IS "MÜKEMMEL" AND FOTOĞRAF_X.AÇI_İLTİFAT_EDİYOR_MU() IS TRUE THEN
+      En_İyi_Açı_Bulundu = DOĞRU
+      YAZ("En iyi açı bulundu.")
+    ELSE
+      YAZ("Açı veya netlik yeterli değil, yeniden deneniyor.")
+    END IF
+    
+    Açı_Denemesi = Açı_Denemesi + 1
+    
+  END WHILE
+  
+  // 3. SONUÇ VE DÜZENLEME AŞAMASI
+  
+  FINAL_FOTOĞRAF = FOTOĞRAF_X
+  
+  // Düzenleme Koşulu
+  IF FINAL_FOTOĞRAF.GENEL_KALİTE IS "MÜKEMMEL" THEN
+    YAZ("Düzenlemeye gerek yok. Çekim Mükemmel.")
+  ELSE
+    // Küçük Düzeltme İşlemleri
+    UYGULA(Final_Fotoğraf, Parlaklık_Ayarı)
+    UYGULA(Final_Fotoğraf, Kontrast_Ayarı)
+    EĞER KÜÇÜK_GÖLGE_VAR_MI() IS TRUE THEN
+      UYGULA(Final_Fotoğraf, Gölge_Giderme_Filtresi)
+    END IF
+    YAZ("Fotoğraf düzenlendi ve iyileştirildi.")
+  END IF
+  
+  KAYDET(FINAL_FOTOĞRAF)
+
+BİTİR
+
+LLM araçlarına sorulan soru: Mükemmel selfie çekme adımları konusunda adım adım psuedocode yaz.Bunu yapmadan önce problemi detaylı analiz edip mantıksal bir yol haritası oluştur.
+Bunun sonucu olarak algoritmayı inceleyip , kavramaya çalıştım.Görevlerim sonucunda LLM araçları üzerinden mantıksal ve kronolojik sıraya uygun algoritma örneklerini kendim tasarlayıp,yanlış veya eksik kısımlar için yardım alacağım.
