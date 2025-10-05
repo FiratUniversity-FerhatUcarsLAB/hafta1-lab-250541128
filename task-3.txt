@@ -1,4 +1,67 @@
-Öğrenci No:
-AD-SOYAD:
+Öğrenci No:250541128
+AD-SOYAD:Enes ALADAĞ
 
 Lütfen seçtiğiniz algoritmaya ait çözümü ve diğer isterleri aşağıya ekleyiniz:
+Seçenek 3: Kütüphanede Kitap Arama Sistemi
+
+Problemin Analizi
+Amaç:
+-Kullanıcıların kütüphanedeki kitapları arayabilmesini sağlamak.
+-Kitaplar veri tabanında düzenli ve hızlı erişilebilir şekilde saklanmalı.
+
+Arama kriterleri: 
+-Kitap adı, yazar, kategori veya yayın yılı olabilir.
+
+Veri Yapısı:
+-Kitap = {ID, KitapAdı, Yazar, YayınYılı, Kategori}
+-Kitaplar bir liste veya dizi içinde saklanabilir.
+
+Algoritmanın Mantığı:
+-Sıralama: Kitapları alfabetik veya kategoriye göre sıralayarak daha düzenli ve hızlı erişim sağlar.
+-Arama: Kullanıcının verdiği kriteri kontrol edip, uygun kitapları listeler.
+-Düzenleme: Yeni kitap ekleme, silme veya güncelleme yapılabilir.
+
+PSEUDOCODE FORMATI:
+
+BAŞLA
+
+    # 1. Kitap listesini hazırla
+    KITAPLAR = [
+        {Kitap Adı: "Matematik 101", Yazar: "Ali", Kategori: "Eğitim"},
+        {Kitap Adı: "Python Programlama", Yazar: "Ayşe", Kategori: "Programlama"},
+        {Kitap Adı: "Fizik Temelleri", Yazar: "Mehmet", Kategori: "Eğitim"}
+    ]
+
+    # 2. Kullanıcıdan arama kriterini al
+    YAZ "Arama tipi seç: 1- Kitap Adı, 2- Yazar, 3- Kategori"
+    AL ARAMA_TIPI
+    YAZ "Aranacak kelimeyi gir:"
+    AL ARANAN
+
+    # 3. Arama işlemi
+    SONUCLAR = boş liste
+    HER KITAP içinde KITAPLAR TEKRARLA
+        EĞER ARAMA_TIPI = "Kitap Adı" VE KITAP.Kitap Adı içeriyor ARANAN
+            EKLE KITAP SONUCLAR
+        EĞER DEĞİLSE VE ARAMA_TIPI = "Yazar" VE KITAP.Yazar içeriyor ARANAN
+            EKLE KITAP SONUCLAR
+        EĞER DEĞİLSE VE ARAMA_TIPI = "Kategori" VE KITAP.Kategori içeriyor ARANAN
+            EKLE KITAP SONUCLAR
+        BITIR EĞER
+    BITIR TEKRAR
+
+    # 4. Sonuçları göster
+    EĞER SONUCLAR boş DEĞİLSE
+        YAZ "Arama sonuçları:"
+        HER KITAP içinde SONUCLAR TEKRARLA
+            YAZ KITAP.Kitap Adı + " - " + KITAP.Yazar + " - " + KITAP.Kategori
+        BITIR TEKRAR
+    DEĞİLSE
+        YAZ "Aranan kitap bulunamadı."
+    BITIR EĞER
+
+BITIR
+
+LLM araçlarına sorulan soru:
+"Kütüphanede kitap arama sistemi"  konusunda veri sıralama, düzenleme veya arama üzerine algoritma yazın. Algoritmayı pseudocode olarak adım adım yaz.Bunu yaparken problemi analiz edip mantığını anlat. 
+Sorulan sorular birkaç LLM araçlarına yönlendirilip , süreci daha verimli kavramayla algoritma çıktısı alınmıştır.
