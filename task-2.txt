@@ -2,9 +2,10 @@
 AD-SOYAD:Enes ALADAĞ
 
 Lütfen seçtiğiniz algoritmaya ait çözümü ve diğer isterleri aşağıya ekleyiniz:
-Amaç:
+Seçenek 5 : Sudoku Çözme Yaklaşımı 
 
-Sudoku oyununda eksik hücreleri doldurmak, kurallara uygun hamleler yapmak ve rakibin olası hamlelerini tahmin etmek.
+Amaç:
+-Sudoku oyununda eksik hücreleri doldurmak, kurallara uygun hamleler yapmak ve rakibin olası hamlelerini tahmin etmek.
 
 Kurallar:
 
