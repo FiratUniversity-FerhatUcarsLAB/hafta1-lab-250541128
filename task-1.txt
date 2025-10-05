@@ -1,4 +1,147 @@
-Öğrenci No:
-AD-SOYAD:
+Öğrenci No:250541128
+AD-SOYAD:Enes ALADAĞ
 
 Lütfen seçtiğiniz algoritmaya ait çözümü ve diğer isterleri aşağıya ekleyiniz:
+Görev 1: Günlük Hayat Algoritması
+Seçenek 1: Mükemmel Omlet Yapımı
+Problemi Detaylı Analizi
+
+Malzeme ve miktar kontrolü
+
+Yumurtalar yeterli mi?
+
+Süt ve tuz miktarı uygun mu?
+
+İsteğe bağlı malzemeler (peynir, sebze, baharat) var mı?
+
+Eğer malzeme eksikse kullanıcıya alternatif öner (örn. süt yoksa su ekle).
+
+Hazırlık aşaması
+
+Yumurtaları kır ve çırp.
+
+Süt, tuz ve isteğe bağlı malzemeleri ekle.
+
+Karışımı homojen yap (karıştırma adımını kontrol döngüsü ile).
+
+Tava ve pişirme kontrolü
+
+Tava sıcak mı? Eğer değilse ısıt.
+
+Yağ miktarı yeterli mi?
+
+Karışımı dök ve pişir:
+
+Altı yanmadan pişiyor mu? (kontrol döngüsü)
+
+Üst kısmı ne kadar katılaştı? (isteğe göre yumuşak, orta, sert)
+
+Gerekirse spatula ile kenarları kontrol et.
+
+Pişme süresi kontrolü ve hata yönetimi
+
+Belirli sürede pişmezse uyar (tava çok soğuk veya malzeme eksik).
+
+Eğer üstü hâlâ çok sıvıysa, kapak kullan veya ateşi ayarla.
+
+Servis ve sunum
+
+Omleti katla veya tabağa al.
+
+Baharat veya ekstra malzeme ile süsle.
+
+Servis yap.
+
+Daha Komplike Pseudocode
+BAŞLA
+
+    # 1. Malzeme ve miktar kontrolü
+    MALZEMELER = {yumurta: 2, süt: 50ml, tuz: 1 çay kaşığı, yağ: 10ml}
+    EK_MALZEMELER = {peynir: 20g, sebze: 30g, baharat: isteğe bağlı}
+
+    # Malzeme eksikliklerini kontrol et
+    HER malzeme MALIEMELER içinde TEKRARLA:
+        EĞER malzeme mevcut DEĞİLSE:
+            Yaz("Eksik malzeme: " + malzeme)
+            Öneri = alternatif malzeme kontrol et
+            EĞER Öneri varsa:
+                Yaz("Alternatif kullanılıyor: " + Öneri)
+            DEĞİLSE:
+                DUR
+            BİTİR EĞER
+        BİTİR EĞER
+    BİTİR TEKRAR
+
+    # 2. Yumurtaları kır ve karıştır
+    KASE = boş
+    Yumurtaları kır ve KASE'ye ekle
+    Süt ve tuz ekle
+    HER ek malzeme EK_MALZEMELER içinde TEKRARLA:
+        EĞER malzeme mevcutSA:
+            KASE'ye ekle
+        BİTİR EĞER
+    BİTİR TEKRAR
+
+    # Homojen karışım için kontrol döngüsü
+    KARISIM_HOMOJEN = YANLIŞ
+    TEKRARLA
+        Karışımı karıştır
+        EĞER karışım homojenSE:
+            KARISIM_HOMOJEN = DOĞRU
+            KIR
+        BİTİR EĞER
+    BİTİR TEKRAR
+
+    # 3. Tava ve pişirme kontrolü
+    TAVA_ISI = ölç
+    EĞER TAVA_ISI < ideal_ısı:
+        TAVA'YI ısıt
+    BİTİR EĞER
+
+    YAĞ miktarı kontrol et
+    EĞER YAĞ < gerekli_miktar:
+        Yağ ekle
+    BİTİR EĞER
+
+    Karışımı TAVA'ya dök
+
+    # 4. Pişirme döngüsü ve kıvam kontrolü
+    OMLET_PİŞTİ = YANLIŞ
+    SÜRE = 0
+    TEKRARLA
+        AltKısım = kontrol et
+        ÜstKısım = kontrol et
+
+        EĞER AltKısım kızardı VE ÜstKısım isteğe göre kıvam aldı:
+            OMLET_PİŞTİ = DOĞRU
+            KIR
+        DEĞİLSE:
+            Ateşi ayarla veya kapak kullan
+            Süre = Süre + 1
+            EĞER Süre > maksimum_süre:
+                Yaz("Hata: Omlet çok uzun sürede pişti")
+                KIR
+            BİTİR EĞER
+        BİTİR EĞER
+    BİTİR TEKRAR
+
+    # 5. Servis ve süsleme
+    Omleti katla veya tabağa al
+    Baharat veya ek malzeme ile süsle
+    Yaz("Omlet hazır, afiyet olsun!")
+
+BİTİR
+
+*Ekstra Özellikler ve Mantık*
+Malzeme eksikse alternatif önerisi
+Karışım homojenliği için döngü
+Tava ısısı ve yağ miktarını kontrol
+Pişme sırasında kıvam kontrolü ve süre limiti
+Hata yönetimi: çok uzun sürede pişme
+İsteğe bağlı süsleme ve servis
+
+LLM aracına yöneltilen soru 
+
+Mükemmel omlet yapma konusunda problemi analiz edip mantığını açıklayarak, koşullar (if-else) ve döngüler (loops) içeren bir algoritmayı pseudocode halinde adım adım yaz.
+
+      
