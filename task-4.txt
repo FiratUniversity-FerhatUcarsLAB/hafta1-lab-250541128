@@ -1,4 +1,102 @@
-Öğrenci No:
-AD-SOYAD:
+Öğrenci No:250541128
+AD-SOYAD:Enes ALADAĞ
 
 Lütfen seçtiğiniz algoritmaya ait çözümü ve diğer isterleri aşağıya ekleyiniz:
+Seçenek 2: N Kişi İçin Adil Pasta Paylaşımı
+
+Problemin Analizi
+Amaç:
+-Bir pastayı N kişiye adil şekilde paylaşmak.
+-Herkesin payı eşit veya adil olmalı.
+-Kimi kişiler daha küçük veya büyük parça isteyebilir, ama toplam eşit dağılım sağlanacak.
+
+Böl ve Fethet Mantığı:
+-Pastayı önce iki parçaya böl, sonra her parçayı kendi alt grubuna adil dağıt.
+-Recursive olarak devam et, grup 1 kişi kalana kadar bölmeye devam et.
+
+Algoritma Mantığı:
+-Taban durumu: Grup 1 kişiye düştüğünde, kalan pastayı ona ver.
+
+Bölme: Pastayı gruba göre iki alt gruba böl, her gruba adil pay dağıt.
+
+Birleştirme: Her alt grup kendi içinde adil şekilde pay alır, sonunda tüm grup adil paylaşım almış olur.
+
+ALGORITMA AdilPastaPaylaşımı(N_Kişi_Listesi, Kalan_Pasta) :
+
+  // 1. TEMEL DURUM (BASE CASE)
+  
+  IF UZUNLUK(N_Kişi_Listesi) IS 1 THEN
+    Kişi = N_Kişi_Listesi[0]
+    Kişi_Payı[Kişi] = Kalan_Pasta // Tek kişi tüm pastayı alır
+    DÖN Kişi_Payı // Algoritma başarılı
+  END IF
+  
+  // 2. BÖL (DIVIDE)
+  
+  // N kişiyi iki parçaya bölme: İlk kişi ve geri kalan N-1 kişi
+  Kişi_A = N_Kişi_Listesi[0]
+  Grup_B = N_Kişi_Listesi[1'den_sona_kadar]
+  
+  // 3. İKİ KİŞİLİK TEMEL PROSEDÜR (Kıskançlıktan Muaf Bölüşüm)
+  
+  // a) Kişi A'nın Değerlemesi
+  // Kişi A, pastanın kendi için en değerli olan 1/N'lik parçasını keser.
+  PAY_A_ADAYI = Kişi_A.Kes_En_Az_1_Bolü_N(Kalan_Pasta, UZUNLUK(N_Kişi_Listesi))
+  
+  // Kalan Pasta: Pastadan PAY_A_ADAYI çıkarılır.
+  Kalan_Pasta_Yeni = Kalan_Pasta - PAY_A_ADAYI
+  
+  // b) Kıskançlık Kontrolü ve Ayarlama (Conquer/Combine)
+  
+  // KOŞUL: Grup B'nin Kişi A'nın payına olan değeri kontrol edilir.
+  // Bu kontrol, tüm Grup B üyelerinin Kişi A'nın payını kabul etmesini sağlar.
+  
+  GRUP_B_KABUL_EDİYOR_MU = TRUE
+  
+  FOR HER_ÜYE IN Grup_B DO
+    // Kişi B'nin gözünden Pay A'nın değeri, kendi için adil gördüğü 1/(N-1) paydan az mı?
+    // Bu basitleştirilmiş bir kıskançlık kontrolüdür.
+    IF HER_ÜYE.Değer(PAY_A_ADAYI) < HER_ÜYE.Değer(Kalan_Pasta_Yeni) / UZUNLUK(Grup_B) THEN
+      GRUP_B_KABUL_EDİYOR_MU = FALSE
+      BREAK
+    END IF
+  END FOR
+  
+  // 4. KARAR VE ÖZYİNELEME (CONQUER/COMBINE)
+  
+  IF GRUP_B_KABUL_EDİYOR_MU IS TRUE THEN
+    
+    // a) Grup B'deki herkes Kişi A'nın payını kıskanmıyor.
+    Kişi_Payı[Kişi_A] = PAY_A_ADAYI // Pay A, Kişi A'ya atanır.
+    
+    // b) Geri kalan problem, kalan pasta üzerinde Grup B ile özyinelemeli çözülür.
+    SONUÇ_GRUP_B = AdilPastaPaylaşımı(Grup_B, Kalan_Pasta_Yeni)
+    
+    // c) Sonuçlar birleştirilir.
+    DÖN BİRLEŞTİR(Kişi_Payı[Kişi_A], SONUÇ_GRUP_B)
+    
+  ELSE
+    
+    // Eğer Grup B'den biri kıskanıyorsa (PAY_A_ADAYI'nı daha değerli görüyorsa):
+    // Daha karmaşık bir "Ayarlama Prosedürü" gereklidir (gerçek algoritmaların yaptığı budur).
+    
+    // BASİTLEŞTİRİLMİŞ GERİ DÖNÜŞ (Backtracking):
+    // Bu, Böl ve Fethet yaklaşımının basit bir hata durumudur, gerçek çözüm daha karmaşıktır.
+    
+    YAZ("Kıskançlık Tespiti. Ayarlama Prosedürü Gerekiyor VEYA Geri Dönülüyor.")
+    // Gerçek algoritmalarda burada kıskanan üyeden pastayı ayarlaması istenir.
+    // Biz, geçersiz bir durum olarak varsayıp, çözüm bulunamadığını döndürelim (Teorik olarak mümkün değil).
+    DÖN HATA // Kıskançlıktan muaf çözüme ulaşılamadı.
+    
+  END IF
+
+// Algoritma Başlangıcı
+BAŞLANGIÇ:
+  KİŞİLER = [Kişi_1, Kişi_2, ..., Kişi_N]
+  PASTA = TAM_PASTA_NESNESİ
+  NİHAİ_PAYLAŞIM = AdilPastaPaylaşımı(KİŞİLER, PASTA)
+  YAZ(NİHAİ_PAYLAŞIM)
+BİTİR
+
+LLM araçlarına yöneltilen soru:" N kişi için adil pasta paylaşımı konusu için Böl ve Fethet (Divide & Conquer) yaklaşımıyla karmaşık bir problemi çöz.Adım adım pseudocode yaz.Bu yazma işlemini mantıksal yaklaşım ve problem çözme süreciyle başlat."
+Sonuç olarak alığım cevabı analiz edip,algoritmayı inceledim.Birincil amacım algoritmayı kendim oluşturmak olmadığı için LLM araçlarının çktısını kullandım.Ben algoritma mantığıını anlamaya ve süreci düşünme yeteneği kazanmaya odaklandım.
